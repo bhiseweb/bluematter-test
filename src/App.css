@@ -1,0 +1,62 @@
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: auto;
+  padding: 10px;
+  color: white;
+}
+
+.App-header .header ul li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 15px;
+}
+.App-header .header ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: all ease-in-out 0.3s;
+}
+.App-header .header ul li a:hover{
+  opacity: 0.6;
+}
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+menu {
+  padding-left: 0;
+}
+ul.experts-details {
+  padding: 0;
+}
+ul.experts-details li{
+  list-style: none;
+  line-height: 35px;
+  border-bottom: 1px solid #efefef;
+}
+ul.experts-details li:first-child{
+  font-size:17px;
+  text-transform: capitalize;
+}
+ul.experts-details li:last-child{
+  border-bottom:none;
+}
+.expert-details-main .well {
+  border-bottom: 2px solid skyblue;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.mr10 {
+  margin-right: 10px;
+}

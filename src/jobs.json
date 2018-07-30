@@ -1,0 +1,106 @@
+[
+  {
+    "value": "Accounting",
+    "label": "Accounting"
+  },
+  {
+    "value": "Administrative",
+    "label": "Administrative"
+  },
+  {
+    "value": "Arts and Design",
+    "label": "Arts and Design"
+  },
+  {
+    "value": "Business Development",
+    "label": "Business Development"
+  },
+  {
+    "value": "Community & Social Services",
+    "label": "Community & Social Services"
+  },
+  {
+    "value": "Consulting",
+    "label": "Consulting"
+  },
+  {
+    "value": "Education",
+    "label": "Education"
+  },
+  {
+    "value": "Engineering",
+    "label": "Engineering"
+  },
+  {
+    "value": "Entrepreneurship",
+    "label": "Entrepreneurship"
+  },
+  {
+    "value": "Finance",
+    "label": "Finance"
+  },
+  {
+    "value": "Healthcare Services",
+    "label": "Healthcare Services"
+  },
+  {
+    "value": "Human Resources",
+    "label": "Human Resources"
+  },
+  {
+    "value": "Information Technology",
+    "label": "Information Technology"
+  },
+  {
+    "value": "Legal",
+    "label": "Legal"
+  },
+  {
+    "value": "Marketing",
+    "label": "Marketing"
+  },
+  {
+    "value": "Media & Communications",
+    "label": "Media & Communications"
+  },
+  {
+    "value": "Military & Protective Services",
+    "label": "Military & Protective Services"
+  },
+  {
+    "value": "Operations",
+    "label": "Operations"
+  },
+  {
+    "value": "Product Management",
+    "label": "Product Management"
+  },
+  {
+    "value": "Program & Product Management",
+    "label": "Program & Product Management"
+  },
+  {
+    "value": "Purchasing",
+    "label": "Purchasing"
+  },
+  {
+    "value": "Quality Assurance",
+    "label": "Quality Assurance"
+  },
+  {
+    "value": "Real Estate",
+    "label": "Real Estate"
+  },
+  {
+    "value": "Rersearch",
+    "label": "Rersearch"
+  },
+  {
+    "value": "Sales",
+    "label": "Sales"
+  },
+  {
+    "value": "Support",
+    "label": "Support"
+  }
+]
