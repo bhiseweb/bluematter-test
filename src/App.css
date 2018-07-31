@@ -51,6 +51,11 @@ ul.experts-details li:last-child{
 .expert-details-main .well {
   border-bottom: 2px solid skyblue;
 }
+ul.extra-details li{
+  list-style: none;
+  line-height: 35px;
+  border-bottom: 1px solid #efefef;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -59,4 +64,13 @@ ul.experts-details li:last-child{
 
 .mr10 {
   margin-right: 10px;
+}
+
+.headname{
+  margin-left: 30px;
+  text-transform: capitalize;
+}
+
+.head{
+  margin-left: 30px;
 }

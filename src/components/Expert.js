@@ -30,7 +30,7 @@ class Expert extends Component {
     var data = new FormData();
     data.append('file', file);
     data.append('description', description);
-    data.append('skills', skills);
+    data.append('skills', skills.join(", "));
     data.append('industry', industry);
     data.append('name', name);
     data.append('email', email);
@@ -42,8 +42,10 @@ class Expert extends Component {
   }
 
   onChange(e) {
-    this.setState({
-        skills: e.value
+    e.map(e => {
+      this.setState({
+        skills: [...this.state.skills, e.value]
+      });
     });
   }
 
@@ -66,11 +68,11 @@ class Expert extends Component {
                 <div className="form-group">
                   <label className="control-label col-sm-2"  >Email</label>
                   <div className="col-sm-10">
-                  <input className="form-control" name="email" value={email} required='' onChange={(e) => this.handleChange('email', e.target.value)} />
+                  <input className="form-control" name="email" type="email" value={email} required='' onChange={(e) => this.handleChange('email', e.target.value)} />
                   </div>
                 </div>
                 <div className="form-group">
-                  <label className="control-label col-sm-2"  >Requirements</label>
+                  <label className="control-label col-sm-2"  >Professional Details</label>
                   <div className="col-sm-10">
                   <textarea className="form-control" rows="6" maxLength="300" name="description" value={description} required='' onChange={(e) => this.handleChange('description', e.target.value)} />
                   </div>
@@ -96,7 +98,7 @@ class Expert extends Component {
                       value={skills}
                       options={Jobs}
                       placeholder='Skills'
-                      onChange={this.onChange}
+                      onChange={(e) => this.onChange(e)}
                     />
                   </div>
                 </div>

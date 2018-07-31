@@ -3,7 +3,6 @@ var router = express.Router();
 var Expert = require('../modal/expert');
 var elastic = require('../elastic');
 var multer = require('multer');
-var bodyParser = require('body-parser');
 
 var storage = multer.diskStorage({
   destination: '../tmp/',
@@ -19,11 +18,13 @@ var upload = multer({ storage: storage })
 router.post('/expert' ,upload.single('file'), function(req, res) {
   console.log('request......',req.body, req.file);
   var newExpert = new Expert();
+
   newExpert.description = req.body.description;
   newExpert.industry = req.body.industry;
-  newExpert.skills  = req.body.skills;
+  newExpert.skills  = req.body.skills.split(",");
   newExpert.name = req.body.name;
   newExpert.email  = req.body.email;
+
   newExpert.save(function(err, data){
     if(err){
       res.send(err);
@@ -43,7 +44,6 @@ router.post('/expert' ,upload.single('file'), function(req, res) {
           })
         });
       }
-      console.log('data', data);
       //normal data mapping
       elastic.indexExists().then(function (exists) {  
         if (exists) {

@@ -52,13 +52,14 @@ function initMapping() {
 exports.initMapping = initMapping;
 
 
-function addDocument(document) {  
+function addDocument(document) { 
+	const str = document.skills.join(" ");
 	return elasticClient.index({
       index: indexName,
       type: "document",
 			body: {
 				'industry': document.industry,
-				'skills': document.skills,
+				'skills': str,
 				'description': document.description,
 				'email': document.email,
 				'name': document.name
@@ -69,19 +70,20 @@ exports.addDocument = addDocument;
 
 
 function searchDocument(document) {
+	const str = document.skills.join(" ");
   return elasticClient.search({  
     index: indexName,
     type: 'document',
     body: {
-		query: {
-			"bool": {
-				"should": [
-				  { "match": { "industry":  document.industry }},
-					{ "match": { "skills":   document.skills }},
-					{ "match": { "description": `${document.industry} + ${document.skills} + ${document.description}`}}
-				]
-			}
-		},
+			query: {
+				"bool": {
+					"should": [
+						{ "match": { "industry":  document.industry }},
+						{ "match": { "skills": str }},
+						{ "match": { "description": `${document.industry} ${str} ${document.description}`}}
+					]
+				}
+			},
     }
   });
 }
@@ -133,10 +135,11 @@ function filesAdd(document) {
 exports.filesAdd = filesAdd;
 
 function filesSearch(document) {
+	const str = document.skills.join(" ");
 	return elasticClient.search({
 		index: 'files',
 		type: 'document',
-		q: `${document.industry} + ${document.skills} + ${document.description}`
+		q: `${document.industry} ${str} ${document.description}`
 	});
 }
 exports.filesSearch = filesSearch
