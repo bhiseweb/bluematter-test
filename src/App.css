@@ -50,6 +50,7 @@ ul.experts-details li:last-child{
 }
 .expert-details-main .well {
   border-bottom: 2px solid skyblue;
+  cursor: pointer;
 }
 ul.extra-details li{
   list-style: none;

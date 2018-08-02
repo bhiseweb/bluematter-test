@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import {Nav, NavItem} from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 
 class Header extends Component {
   render() {
     return (
       <div className="header">
         <Nav bsStyle="pills" >
-          <LinkContainer to="/dashboard">
+          <IndexLinkContainer to="/">
             <NavItem eventKey={1}>Dashboard</NavItem>
-          </LinkContainer>
+          </IndexLinkContainer>
           <LinkContainer to="/client">
             <NavItem eventKey={2}>Clients</NavItem>
           </LinkContainer>
@@ -23,3 +23,4 @@ class Header extends Component {
 }
 
 export default Header;
+
