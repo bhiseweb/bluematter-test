@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import Jobs from '../jobs.json';
 import Industry from '../industry.json';
+import { withRouter } from "react-router-dom";
 
 class Client extends Component {
   constructor(){
@@ -24,6 +25,7 @@ class Client extends Component {
   }
 
   onSubmit(e) {
+    e.preventDefault();
     var URL = 'http://localhost:3008/';
     const {description, skills, industry, name, email, bio} = this.state;
     let url = URL + 'api/client';   //`${}`
@@ -45,6 +47,7 @@ class Client extends Component {
     })
     .then( () =>{
       console.log('Response success');
+      this.props.history.push('/');
     });
   }
 
@@ -75,7 +78,7 @@ class Client extends Component {
                 <div className="form-group">
                   <label className="control-label col-sm-2"  >Email</label>
                   <div className="col-sm-10">
-                  <input className="form-control" type="email" name="email" value={email} required='' onChange={(e) => this.handleChange('email', e.target.value)} />
+                  <input className="form-control" type="email" name="email" value={email} required onChange={(e) => this.handleChange('email', e.target.value)} />
                   </div>
                 </div>
                 <div className="form-group">
@@ -128,4 +131,4 @@ class Client extends Component {
   }
 }
 
-export default Client;
+export default withRouter(Client);

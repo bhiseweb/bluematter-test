@@ -14,8 +14,9 @@ class SearchResult extends Component {
 				<h3 className="headname"><strong>{this.props.location.state.client.name}</strong></h3>
 				<h4 className="head" >Experts details according to client requirements: </h4>
 				{this.props.location.state && this.props.location.state.experts.map((e, i) => {
+          console.log(e._source.resume);
           return (
-            <div class="col-md-3" key={i}>
+            <div className="col-md-3" key={i}>
               <div className="panel">  
                   <div className="panel-body expert-details-main">
                     <div className="well">
@@ -30,6 +31,7 @@ class SearchResult extends Component {
 													<li><label className="control-label mr10" >Description: </label>{e._source.description}</li>
 													<li><label className="control-label mr10" >Industry: </label>{e._source.industry}</li>
 													<li><label className="control-label mr10" >Skills: </label>{e._source.skills}</li>
+                          <li>{e._source.resume && <a  href={`/uploads/${e._source.resume}`}>Download Resume</a>}</li>
 												</ul>
 											</div>
                     </div>

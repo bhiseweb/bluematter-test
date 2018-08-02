@@ -62,7 +62,8 @@ function addDocument(document) {
 				'skills': str,
 				'description': document.description,
 				'email': document.email,
-				'name': document.name
+				'name': document.name,
+        'resume': document.resume,
 			}
   });
 }

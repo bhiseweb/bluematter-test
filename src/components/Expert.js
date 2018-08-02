@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import Jobs from '../jobs.json';
 import Industry from '../industry.json';
+import { withRouter } from "react-router-dom";
 
 class Expert extends Component {
   constructor(){
@@ -24,6 +25,7 @@ class Expert extends Component {
   }
 
   onSubmit(e) {
+    e.preventDefault();
     var URL = 'http://localhost:3008/';
     const {description, skills, industry, file, name, email} = this.state;
     let url = URL + 'api/expert';   //`${}`
@@ -38,7 +40,10 @@ class Expert extends Component {
       method: 'POST',
       body: data
     })
-    .then( (response) => response.json() );
+    .then( (response) =>  { 
+      response.json() 
+      this.props.history.push('/');
+    } );
   }
 
   onChange(e) {
@@ -62,19 +67,19 @@ class Expert extends Component {
                 <div className="form-group">
                   <label className="control-label col-sm-2"  >Name</label>
                   <div className="col-sm-10">
-                  <input className="form-control" name="name" value={name} required='' onChange={(e) => this.handleChange('name', e.target.value)} />
+                  <input className="form-control" name="name" value={name} required onChange={(e) => this.handleChange('name', e.target.value)} />
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="control-label col-sm-2"  >Email</label>
                   <div className="col-sm-10">
-                  <input className="form-control" name="email" type="email" value={email} required='' onChange={(e) => this.handleChange('email', e.target.value)} />
+                  <input className="form-control" name="email" type="email" value={email} required onChange={(e) => this.handleChange('email', e.target.value)} />
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="control-label col-sm-2"  >Professional Details</label>
                   <div className="col-sm-10">
-                  <textarea className="form-control" rows="6" maxLength="300" name="description" value={description} required='' onChange={(e) => this.handleChange('description', e.target.value)} />
+                  <textarea className="form-control" rows="6" maxLength="300" name="description" value={description} required onChange={(e) => this.handleChange('description', e.target.value)} />
                   </div>
                 </div>
                 <div className="form-group">
@@ -120,4 +125,4 @@ class Expert extends Component {
   }
 }
 
-export default Expert;
+export default withRouter(Expert);

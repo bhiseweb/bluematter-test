@@ -6,7 +6,8 @@ const ExpertSchema = new Schema({
   email: String,
   description: String,
   industry: String,
-  skills: [String]
+  skills: [String],
+  resume: String,
 });
 
 module.exports = mongoose.model('Experts', ExpertSchema ,'experts');
